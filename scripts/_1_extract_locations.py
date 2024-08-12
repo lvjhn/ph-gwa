@@ -16,13 +16,13 @@ def extract_regions():
     global regions_ba
     regions_ba = Article("basis/Regions")
     regions = LocationsExtractor.extract_regions(regions_ba)
-    regions.to_csv("./data/locations/tables/regions.csv")
+    regions.rename(columns={ "Unnamed: 0" : "index" })
 
 def extract_provinces():
     global prov_to_reg, provinces_ba
     provinces_ba = Article("basis/Provinces") 
     provinces = LocationsExtractor.extract_provinces(provinces_ba) 
-    provinces.to_csv("./data/locations/tables/provinces.csv")
+    provinces.rename(columns={ "Unnamed: 0" : "index" })
 
     # map provinces to regions 
     prov_to_reg = provinces[["name", "region"]]
