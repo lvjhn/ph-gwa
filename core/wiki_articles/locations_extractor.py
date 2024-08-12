@@ -123,7 +123,9 @@ class LocationsExtractor:
 
             # get province
             province = province_el.get_text() 
-            province = province.replace("\n", "")
+            province = province.replace("\n", " ")
+            province = province.replace("\t", "")
+            province = province.strip()
 
             # add data
             names.append(name)
